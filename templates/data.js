@@ -421,25 +421,27 @@ let artistsINIT = [
 
 
 
-let isTracksExist = localStorage.getItem("trackList");
+let isTracksExist = localStorage.getItem("trackListStorage");
 if (!isTracksExist) {
-    localStorage.setItem("trackList",JSON.stringify(tracksINIT));
+    localStorage.setItem("trackListStorage",JSON.stringify(tracksINIT));
 } 
 
-let isAlbumsExist = localStorage.getItem("albumList");
+let isAlbumsExist = localStorage.getItem("albumListStorage");
 if (!isAlbumsExist) {
-    localStorage.setItem("albumList",JSON.stringify(albumsINIT));
+    localStorage.setItem("albumListStorage",JSON.stringify(albumsINIT));
 } 
 
-let isArtistsExist = localStorage.getItem("artistList");
+let isArtistsExist = localStorage.getItem("artistListStorage");
 if (!isArtistsExist) {
-    localStorage.setItem("trackList",JSON.stringify(artistsINIT));
+    localStorage.setItem("artistListStorage",JSON.stringify(artistsINIT));
 } 
 
 
-var tracks = JSON.parse(localStorage.getItem("trackList"));
-var albums = JSON.parse(localStorage.getItem("albumList"));
-var artists = JSON.parse(localStorage.getItem("artistList"));
+var tracks = JSON.parse(localStorage.getItem("trackListStorage"));
+var albums = JSON.parse(localStorage.getItem("albumListStorage"));
+var artists = JSON.parse(localStorage.getItem("artistListStorage"));
+
+
 
 
 
