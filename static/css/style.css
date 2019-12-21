@@ -1,0 +1,1306 @@
+* {
+    font-family: Arial, Helvetica, sans-serif
+}
+
+
+
+.navbar-left {
+    background-color: #1D2D3C;
+    height: 93vh;
+    width: 15%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    /* background-color: #111; */
+    overflow-x: hidden;
+    /* padding-top: 20px; */
+}
+
+
+
+.navbar-bot {
+    background-color: #293E54;
+    margin-top: 93vh;
+    height: 7vh;
+    width: 100%;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    /* background-color: #111; */
+    overflow-x: hidden;
+    /* padding-top: 20px; */
+}
+
+
+/* .sidenav a {
+      padding: 6px 8px 6px 16px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #818181;
+      display: block;
+  }
+    
+  .sidenav a:hover {
+      color: #f1f1f1;
+  } */
+
+.main {
+    margin-left: 15%;
+    margin-bottom: 7vh;
+    padding-bottom: 5px;
+    /* Same as the width of the sidenav */
+    font-size: 28px;
+    /* Increased text to enable scrolling */
+    /* margin-right: 15%; Same as the width of the sidenav */
+    /* height: 300vh; */
+    background-color: #0A1A2A;
+    /* background-image: linear-gradient(#0A1A2A 70%, rgb(80, 99, 119), #0A1A2A 70%); */
+    min-height: 100vh;
+}
+
+
+
+
+.nav {
+    height: 90%;
+    width: 90%;
+}
+
+.header-left {
+    height: 20%;
+    width: 100%;
+}
+
+.footer-left {
+    height: 80%;
+    width: 100%;
+}
+
+.homepage-logo {
+    font-size: 80px;
+    color: lightgray;
+    margin-left: 20%;
+}
+
+
+
+.homepage-logo:hover {
+    text-decoration: none;
+    color: crimson;
+    cursor: pointer;
+}
+
+.genre-1 {
+    margin-top: 10%;
+    margin-left: 17%;
+    margin-bottom: 15%;
+    color: lightgray;
+    font-size: 17px;
+}
+
+.genre-2 {
+    margin-top: 30%;
+    margin-left: 17%;
+    margin-bottom: 15%;
+    color: lightgray;
+    font-size: 17px;
+
+}
+
+.genre-tag {
+    margin-left: 5%;
+    text-decoration: none;
+    color: #727D87;
+    font-size: 90%;
+}
+
+.genre-icon {
+    margin-left: 20%;
+    /* text-decoration: none; */
+    color: #727D87;
+    font-size: 90%;
+}
+
+
+
+.genre-tag:hover {
+    text-decoration: none;
+    color: crimson;
+    cursor: pointer;
+}
+
+.logo {
+
+    /* margin-top: ; */
+    width: 50%;
+    height: 50%;
+    background-size: cover;
+    background-position: center;
+    background-image: url("../image/play-button.png");
+}
+
+
+.navbar-bot-song-detail {
+    width: 15%;
+    height: 100%;
+}
+
+
+.song-detail-bot {
+    width: 90%;
+    height: 50%;
+}
+
+
+.thumbnail-bot {
+    height: 100%;
+    width: 30%;
+    /* background-image: url("../image/maxresdefault.jpg");
+    background-position: center;
+    background-size: cover; */
+}
+
+.thumbnail-bot img {
+    width: 100%;
+    height: 100% !important;
+    border-radius: 3px;
+    object-fit: cover;
+
+}
+
+.song-info-bot {
+    height: 100%;
+    width: 60%;
+}
+
+.song-title-bot {
+    height: 50%;
+    width: 100%;
+}
+
+.song-artist-bot {
+    height: 50%;
+    width: 100%;
+
+}
+
+.song-title-bot-span {
+    margin-left: 10%;
+    font-size: 15px;
+    color: lightgray;
+    overflow: hidden;
+    white-space: nowrap;
+
+}
+
+
+.song-artist-bot-span {
+    margin-left: 10%;
+    font-size: 13px;
+    color: #727D87;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+
+.navbar-bot-music-player {
+    width: 82%;
+    height: 100%;
+}
+
+/* Music Player */
+/* https://codepen.io/gregh/pen/NdVvbm */
+
+
+
+/* ---------- */
+
+.play-button-and-progess-bar {
+    width: 64%;
+    height: 100%;
+}
+
+.volumn-button {
+    width: 18%;
+    height: 100%;
+}
+
+.play-button-group {
+    width: 20%;
+    height: 100%;
+    /* background-color: black ; */
+    font-size: 300%;
+}
+
+.back-button {
+    color: lightgray;
+    cursor: pointer;
+}
+
+.next-button {
+    color: lightgray;
+    cursor: pointer;
+}
+
+.play-button {
+    color: lightgray;
+    cursor: pointer;
+}
+
+.blank-space {
+    width: 20%;
+    height: 100%;
+    /* background-color: black ; */
+}
+
+.progess-bar-sector {
+    width: 60%;
+    height: 100%;
+}
+
+
+.min-progess {
+    font-size: 15px;
+    width: 10%;
+    height: 100%;
+    padding: auto;
+    color: lightgray;
+}
+
+.max-progess {
+    font-size: 15px;
+    width: 10%;
+    height: 100%;
+    padding: auto;
+    color: lightgray;
+
+
+}
+
+.progessing {
+    width: 80%;
+    height: 100%;
+}
+
+.progessing-2 {
+    width: 98%;
+}
+
+.custom-progess {
+    background-color: crimson;
+
+}
+
+.progess-border {
+    border: 3px solid #0A1A2A;
+}
+
+
+
+.progress .progress-bar {
+    border-radius: 20px;
+    border: 5px solid #0A1A2A;
+    -webkit-animation: animate-positive 2s;
+    animation: animate-positive 2s;
+}
+
+.progress .progress-value {
+    width: 65px;
+    height: 25px;
+    line-height: 25px;
+    background: #171b3c;
+    font-size: 15px;
+    color: #fff;
+    border-radius: 0 0 15px 15px;
+    border: 1px solid #000;
+    border-top: none;
+    box-shadow: 0 2px 2px #4f4c4c;
+    position: absolute;
+    bottom: -25px;
+    right: 60px;
+}
+
+
+.volumn-icon {
+    width: 10%;
+    height: 100%;
+    color: lightgray;
+}
+
+.volumn-icon:hover {
+    cursor: pointer;
+}
+
+.heart-icon {
+    width: 10%;
+    height: 100%;
+    color: crimson;
+}
+
+.volumn-bar {
+    width: 80%;
+    height: 100%;
+}
+
+.progessing-3 {
+    width: 90%;
+}
+
+
+.main-left {
+    width: 80%;
+}
+
+.main-right {
+    width: 20%;
+    height: 100vh;
+    background-color: crimson;
+}
+
+.search-bar-sector {
+    height: 7vh;
+    width: 100%;
+}
+
+.carousel-sector {
+    height: 580px;
+    width: 100%;
+}
+
+.recommended-album-sector {
+    height: 40vh;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+
+.recommended-artist-sector {
+    height: 25vh;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+
+.search-bar-input {
+    width: 20%;
+    height: 60%;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    /* border-radius: 7px; */
+    border: 2px solid #293E54;
+    background-color: #293E54;
+    font-size: 20px;
+    margin-left: 40px;
+    padding-left: 15px;
+}
+
+.search-bar-input:focus {
+    width: 90%;
+}
+
+
+.carousel-item img {
+    margin-top: 20px;
+    height: 500px !important;
+    max-height: 100% !important;
+}
+
+.carousel-sector-inside {
+    width: 90%;
+}
+
+
+.recommended-album-sector-nav {
+    height: 20%;
+    width: 100%;
+    /* background-color: black; */
+}
+
+.recommended-album-title {
+    color: lightgray;
+    font-size: 18px;
+    margin-left: 40px;
+
+}
+
+.genre-select-button {
+    /* font-size: 10px;
+    height: 50%;
+    width: 10%;
+    margin-right: 40px ; */
+    color: #727D87;
+    font-size: 18px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+
+
+.genre-select-button:hover {
+    /* text-decoration: none; */
+    color: crimson;
+    cursor: pointer;
+}
+
+
+
+
+.recommended-album-sector-album {
+    height: 80%;
+    width: 100%;
+}
+
+.list-album-card {
+    margin-left: 40px;
+    margin-right: 40px;
+    height: 100%;
+    width: 100%;
+}
+
+.album-card {
+    width: 18%;
+    height: 100%;
+    /* background-color: black; */
+}
+
+.album-image-home-page {
+    width: 100%;
+    height: 75%;
+    /* background-color: white; */
+}
+
+.album-image-home-page img {
+    /* object-fit: cover; */
+    max-width: 100%;
+    height: 100%;
+}
+
+.album-image-home-page img:hover {
+    color: crimson;
+    cursor: pointer;
+}
+
+.album-detail-home-page {
+    background-color: #293E54;
+    width: 100%;
+    height: 25%;
+}
+
+.album-name-home-page {
+    font-size: 18px;
+    color: lightgray;
+    padding-left: 10px;
+    margin-right: 10px;
+    padding-top: 10px;
+    overflow: hidden !important;
+    white-space: nowrap;
+    /* text-overflow: ellipsis; */
+}
+
+.album-name-home-page :hover {
+    color: crimson;
+    cursor: pointer;
+}
+
+
+.album-artist-home-page {
+    font-size: 16px;
+    color: #727D87;
+    padding-left: 10px;
+    overflow: hidden !important;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-right: 10px;
+
+}
+
+
+.album-artist-home-page span:hover {
+    color: crimson;
+    cursor: pointer;
+}
+
+.recommended-artist-sector-nav {
+    height: 20%;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.recommended-artist-title {
+    color: lightgray;
+    font-size: 18px;
+    margin-left: 40px;
+}
+
+.more-artist-button {
+    color: #727D87;
+    font-size: 18px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+
+
+.more-artist-button:hover {
+    /* text-decoration: none; */
+    color: crimson;
+    cursor: pointer;
+}
+
+
+
+
+.recommended-artist-sector-album {
+    height: 80%;
+    width: 100%;
+}
+
+.list-artist-card {
+    margin-left: 40px;
+    margin-right: 40px;
+    height: 100%;
+    width: 100%;
+}
+
+.artist-card {
+    width: 12%;
+    height: 100%;
+    /* background-color: black; */
+}
+
+.artist-image-home-page {
+    width: 100%;
+    height: 70%;
+    /* background-color: white; */
+}
+
+.artist-image-home-page img {
+    object-fit: cover;
+    width: 90%;
+    height: 90%;
+    border-radius: 50%;
+}
+
+.artist-image-home-page img:hover {
+    cursor: pointer;
+}
+
+.artist-detail-home-page {
+    /* background-color: #293E54; */
+    width: 100%;
+    height: 30%;
+}
+
+.artist-name-home-page {
+    font-size: 16px;
+    color: lightgray;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+
+.artist-name-home-page span:hover {
+    color: crimson;
+    cursor: pointer;
+}
+
+
+.home-page-hot-song {
+    height: auto;
+    width: 100%;
+    margin-top: 100px;
+    /* background-color: lightsalmon; */
+}
+
+
+.home-page-hot-song-title-box {
+    width: 100%;
+    margin-bottom: 10px;
+    color: lightgray;
+    font-size: 25px;
+}
+
+.home-page-hot-song-title {
+    width: 80%;
+    border-top: 1px solid lightgray;
+    padding: 40px;
+}
+
+.home-page-hot-song-sector {
+    width: 100%;
+    /* height: 20vh; */
+    /* background-color: lightsalmon; */
+}
+
+.home-page-hot-song-box {
+    width: 70%;
+    height: auto;
+    background-color: #1D2D3C;
+}
+
+.home-page-hot-song-box ul {
+    list-style-type: none;
+    list-style: none;
+}
+
+.home-page-hot-song-box ul li {
+    height: 50px;
+    border-bottom: 0.5px solid lightgray;
+    margin-right: 40px;
+}
+
+.hot-song-cover {
+    height: 100%;
+    width: 10%;
+    padding: 2%;
+}
+
+.hot-song-cover img {
+    width: 90%;
+    object-fit: cover;
+}
+
+
+.hot-song-title-and-artist {
+    height: 100%;
+    width: 90%;
+
+}
+
+.hot-song-title {
+    height: 100%;
+    width: 60%;
+    padding: 1%;
+    color: lightgray;
+    font-size: 15px;
+}
+
+
+.hot-song-title:hover {
+    color: crimson;
+    cursor: pointer;
+}
+
+.hot-song-artist {
+    height: 100%;
+    width: 40%;
+    padding: 1%;
+
+    padding-right: 10px;
+    /* text-align: end; */
+    color: #727D87;
+    font-size: 15px;
+}
+
+
+
+.hot-song-artist span:hover {
+    color: crimson;
+    cursor: pointer;
+}
+
+.footer-box {
+    margin-top: 90px;
+    height: 5vh;
+    width: 100%;
+}
+
+.page-footer {
+    height: 100%;
+    width: 80%;
+    /* padding: auto; */
+    border-top: 1px solid lightgray;
+    color: lightgray;
+    font-size: 18px;
+}
+
+.track-control {
+    -webkit-appearance: none;
+    width: 100%;
+    height: auto;
+    background: #0A1A2A;
+    outline: none;
+    /* opacity: 0.7; */
+    /* -webkit-transition: .2s; */
+    /* transition: opacity .2s; */
+    cursor: pointer;
+
+}
+
+
+.track-control::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1px;
+    height: 18px;
+    /* border-radius: 20px; */
+    /* border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%; */
+    background: crimson;
+    cursor: pointer;
+    /* display: none; */
+
+    opacity: 0;
+}
+
+.progess-border-20px {
+    border-radius: 20px;
+    background-color: #0A1A2A;
+    padding: 5px;
+}
+
+
+.album-page-album-sector {
+    width: 100%;
+}
+
+.album-page-title {
+    width: 100%;
+    color: lightgray;
+    font-size: 30px;
+}
+
+.album-page-soft {
+    width: 85%;
+    color: lightgray;
+    font-size: 22px;
+    margin: auto;
+    margin-bottom: 30px ;
+}
+
+.album-page-drop-down-btn {
+    background-color: #293E54;
+    color: lightgray;
+}
+
+
+.album-page-album-box {
+    width: 90%;
+    margin: auto;
+}
+
+.album-page-row {
+    height: 300px;
+    width: 100%;
+    margin-bottom: 50px ;
+}
+
+.album-page-album-card {
+    width: 18%;
+    height: 100%;
+}
+
+
+
+
+
+.album-page-album-img {
+    height: 75%;
+    width: 100%;
+}
+
+.album-page-album-img img {
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    max-width: 100%;
+    cursor: pointer;
+}
+
+.album-page-album-detail{
+    height: 25%;
+    width: 100%;
+    padding-left: 10px ;
+    padding-right: 10px ;
+    background-color: #293E54;
+}
+
+.album-page-album-title {
+    height: 50%;
+    width: 100%;
+    font-size: 18px;
+    color: lightgray;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.album-page-album-title:hover {
+    color: crimson;
+}
+
+.album-page-album-artist {
+    height: 50%;
+    width: 100%;
+    font-size: 16px;
+    color: #727D87;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.album-page-album-artist:hover {
+    color: crimson;
+}
+
+
+
+
+.artist-page-artist-sector {
+    width: 100%;
+}
+
+.artist-page-title {
+    width: 100%;
+    color: lightgray;
+    font-size: 30px;
+}
+
+
+.artist-page-artist-box {
+    width: 90%;
+    margin: auto;
+}
+
+
+.artist-page-row {
+    height: 200px;
+    width: 100%;
+    margin-bottom: 50px ;
+}
+
+.artist-page-artist-card {
+    height: 100%;
+    width: 15%;
+}
+
+.artist-page-artist-img {
+    height: 77%;
+    width: 100%;
+}
+
+.artist-page-artist-img img {
+    width: 90%;
+    height: 90%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.artist-page-artist-img img:hover {
+    cursor: pointer;
+}
+
+.artist-page-artist-name {
+    height: 23%;
+    width: 100%;
+    color: lightgray;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 19px;
+}
+
+/* .artist-page-artist-name span {
+    margin-left: 10px;
+    margin-right: 10px;
+
+} */
+
+
+.artist-page-artist-name:hover {
+    color: crimson;
+}
+
+
+.genre-page-title {
+    width: 100%;
+    color: lightgray;
+    font-size: 30px;
+    height: 100px;
+    width: 100%;
+}
+
+
+
+/* Genre page album sector */
+
+.genre-page-album-sector {
+    width: 80%;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 80px;
+}
+
+
+.genre-page-album {
+    font-size: 20px;
+    color: lightgray;
+}
+
+.genre-page-more {
+    font-size: 18px;
+    color: #727D87;
+}
+
+.genre-page-more:hover {
+    cursor: pointer;
+    color: crimson;
+}
+
+.genre-page-album-list {
+    width: 97%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.genre-page-album-list-row {
+    height: 200px;
+    width: 100%;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.genre-page-album-card {
+    height: 100%;
+    width: 15%;
+    background-color: #1D2D3C;
+}
+
+.genre-page-album-card-img {
+    height: 75%;
+    width: 100%;
+}
+
+.genre-page-album-card-img img{
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    /* object-fit: cover; */
+}
+
+.genre-page-album-card-img img:hover {
+    cursor: pointer;
+}
+
+.genre-page-album-card-detail {
+    height: 25%;
+    width: 100%;
+}
+
+.genre-page-album-card-title {
+    height: 50%;
+    font-size: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: lightgray;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+
+
+.genre-page-album-card-artist {
+    height: 50%;
+    font-size: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #727D87;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.genre-page-album-card-title span:hover {
+    color: crimson;
+    cursor: pointer;
+}
+
+.genre-page-album-card-artist span:hover {
+    color: crimson;
+    cursor: pointer;
+}
+
+/* End genre page album sector */
+
+/* Genre page single sector  */
+
+
+.genre-page-single-sector {
+    width: 80%;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 80px;
+    border-bottom: 1px solid lightgray;
+}
+
+
+.genre-page-single {
+    font-size: 20px;
+    color: lightgray;
+}
+
+
+.genre-page-single-list {
+    width: 97%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.genre-page-single-list-row {
+    height: 200px;
+    width: 100%;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.genre-page-single-card {
+    height: 100%;
+    width: 15%;
+    position: relative;
+}
+
+.genre-page-single-card-img {
+    height: 65%;
+    width: 100%;
+    position: relative;
+    z-index: 0;
+}
+
+/* 
+.genre-page-single-card-img-disk {
+    height: 65%;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    z-index: 1;
+    background-color: lightgray;
+    border-radius: 50%;
+} */
+
+.genre-page-single-card-img img{
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.genre-page-single-card-img img:hover {
+    cursor: pointer;
+}
+
+.genre-page-single-card-detail {
+    height: 35%;
+    width: 100%;
+}
+
+.genre-page-single-card-title {
+    height: 50%;
+    font-size: 17px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: lightgray;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+
+
+.genre-page-single-card-artist {
+    height: 50%;
+    font-size: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #727D87;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.genre-page-single-card-title span:hover {
+    color: crimson;
+    cursor: pointer;
+}
+
+.genre-page-single-card-artist span:hover {
+    color: crimson;
+    cursor: pointer;
+}
+
+/* End gern page single sector  */
+
+/* Genre page artist sector  */
+
+
+.genre-page-artist-sector {
+    width: 80%;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 80px;
+    border-bottom: 1px solid lightgray;
+}
+
+
+.genre-page-artist {
+    font-size: 20px;
+    color: lightgray;
+}
+
+
+.genre-page-artist-list {
+    width: 97%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.genre-page-artist-list-row {
+    height: 165px;
+    width: 100%;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.genre-page-artist-card {
+    height: 100%;
+    width: 15%;
+}
+
+.genre-page-artist-card-img {
+    height: 80%;
+    width: 100%;
+}
+
+.genre-page-artist-card-img img{
+    width: 90%;
+    height: 90%;
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.genre-page-artist-card-img img:hover {
+    cursor: pointer;
+}
+
+.genre-page-artist-card-detail {
+    height: 20%;
+    width: 100%;
+}
+
+.genre-page-artist-card-title {
+    height: 100%;
+    font-size: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: lightgray;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+
+
+.genre-page-artist-card-title span:hover {
+    color: crimson;
+    cursor: pointer;
+}
+
+.genre-page-artist-card-artist span:hover {
+    color: crimson;
+    cursor: pointer;
+}
+
+/* End gern page artist sector  */
+
+
+/* album-detai-page  */
+.album-detail-page-cover {
+    height: 500px;
+    width: 80%;
+    margin: auto;
+    margin-top: 40px;
+}
+
+.album-detail-page-cover img {
+    width: 100% !important;
+    height: 100%;
+    max-height: 100%;
+
+}
+
+.album-detail-page-title {
+    width: 80%;
+    margin: auto;
+    font-size: 20px;
+    color: lightgray;
+    margin-top: 15px;
+    padding-left: 15px ;
+}
+
+.album-detail-page-artist {
+    width: 80%;
+    margin: auto;
+    font-size: 18px;
+    color: #727D87;
+    padding-left: 15px ;
+}
+.album-detail-page-artist span{
+    color: lightgray;
+}
+
+
+.album-detail-page-artist span:hover{
+    color: crimson;
+    cursor: pointer;
+}
+
+.album-detail-page-tracklist-sector {
+    width: 70%;
+    margin: auto;
+    background-color: #1D2D3C;
+    margin-bottom: 50px;
+}
+
+.album-detail-page-tracklist-title {
+    width: 70%;
+    font-size: 25px;
+    color: lightgray;
+    margin: auto;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+.album-detail-page-tracklist-row {
+    height: 80px;
+    width: 100%;
+    border-bottom: 1px solid lightgray;
+}
+
+.album-detail-page-tracklist-cover {
+    width: 80px;
+    height: 100%;
+}
+
+.album-detail-page-tracklist-cover img{
+    height: 80%;
+    width: 80% !important;
+    max-height: 80%;
+}
+
+.album-detail-page-tracklist-cover img:hover {
+    cursor: pointer;
+}
+
+.album-detail-page-tracklist-name {
+    margin-left: 20px;
+    font-size: 20px;
+    color: lightgray;
+}
+
+.album-detail-page-tracklist-name span:hover {
+    color: crimson;
+    cursor: pointer;
+}

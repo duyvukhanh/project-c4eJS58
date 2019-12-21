@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/fontawesome/css/all.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+
+</head>
+
+<body>
+
+    <div class="navbar-left d-flex justify-content-center align-items-center">
+        <div class="nav">
+
+            <div class="footer-left">
+                <div class="homepage-logo" onclick="displayIndex()">
+                    <i class="fab fa-napster"></i>
+
+                </div>
+                <h5 class="genre-1">LIBRARY</h5>
+                <p>
+                    <i class="fas fa-home genre-icon"></i>
+                    <span class="genre-tag" onclick="displayIndex()">HOME</span>
+                </p>
+                <p>
+                    <i class="fas fa-music genre-icon"></i>
+                    <span class="genre-tag" onclick="displayAlbumPage('ALL',reversedArr(albums))">ALBUMS</span>
+                </p>
+                <p>
+                    <i class="fas fa-user genre-icon"></i>
+                    <span class="genre-tag" onclick="displayArtistPage('ALL',reversedArr(artists))">ARTISTS</span>
+                </p>
+                <p>
+                    <i class="fas fa-play-circle genre-icon"></i>
+                    <span href="" class="genre-tag" onclick="displaySinglePage('ALL SINGLES',tracks);">SINGLES</span>
+                </p>
+                <h5 class="genre-2">GENRE</h5>
+                <p>
+                    <i class="fas fa-play-circle genre-icon"></i>
+                    <span href="" class="genre-tag" onclick="displayGenrePage('ALL GENRE',albums,artists,tracks)">ALL
+                        GENRES</span>
+                </p>
+                <p>
+                    <i class="fas fa-play-circle genre-icon"></i>
+                    <span href="" class="genre-tag"
+                        onclick="displayGenrePage('COUNTRY',filterCountryAlbums(albums),filterCountryArtists(artists),filterCountrySingles(tracks))">COUNTRY</span>
+                </p>
+                <p>
+                    <i class="fas fa-play-circle genre-icon"></i>
+                    <span href="" class="genre-tag"
+                        onclick="displayGenrePage('POP',filterPopAlbums(albums),filterPopArtists(artists),filterPopSingles(tracks))">POP</span>
+                </p>
+                <p>
+                    <i class="fas fa-play-circle genre-icon"></i>
+                    <span href="" class="genre-tag"
+                        onclick="displayGenrePage('ROCK',filterRockAlbums(albums),filterRockArtists(artists),filterRockSingles(tracks))">ROCK</span>
+                </p>
+                <p>
+                    <i class="fas fa-play-circle genre-icon"></i>
+                    <span href="" class="genre-tag"
+                        onclick="displayGenrePage('RAP/HIP-HOP',filterRapAlbums(albums),filterRapArtists(artists),filterRapSingles(tracks))">RAP/HIP-HOP</span>
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div id="main" class="main d-flex">
+    </div>
+
+
+    <div class="navbar-bot d-flex">
+        <div id="audio-sector">
+            <!-- <audio class="audioBot">
+
+            </audio> -->
+        </div>
+        <div class="navbar-bot-song-detail d-flex justify-content-center align-items-center">
+            <div class="song-detail-bot d-flex align-items-center justify-content-center">
+                <div id="track-cover-nav-bot" class="thumbnail-bot">
+                    <!-- <img src="../static/image/maxresdefault.jpg" alt=""> -->
+                </div>
+                <div class="song-info-bot">
+                    <div class="song-title-bot d-flex align-items-end">
+                        <span id="track-title-nav-bot" class="song-title-bot-span">Unknown</span>
+                    </div>
+                    <div class="song-artist-bot d-flex align-items-start">
+                        <span id="track-artist-nav-bot" class="song-artist-bot-span">Unknown</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="play-button-and-progess-bar d-flex">
+            <div class="play-button-group d-flex justify-content-center align-items-center" style="font-size: 20px;">
+                <div class="back-button"><i class="fas fa-step-backward"></i></div>
+                <div class="play-button mx-3">
+                    <!-- <i class="fas fa-play-circle fa-2x"></i> -->
+                </div>
+                <div class="next-button"><i class="fas fa-step-forward"></i></div>
+            </div>
+            <div class="progess-bar-sector d-flex justify-content-between align-items-center">
+                <div id="time-start" class="min-progess d-flex justify-content-center align-items-center">00:00</div>
+                <div class="progessing d-flex justify-content-center align-items-center">
+                    <div class="progessing-2">
+                        <div class="progress progess-border-20px">
+                            <input id="track-control" class="track-control" type="range" min="0" max="100" step="1"
+                                value="0"></input>
+                        </div>
+                    </div>
+
+                </div>
+                <div id="time-stop" class="max-progess d-flex justify-content-center align-items-center">00:00</div>
+            </div>
+            <div class="blank-space"></div>
+        </div>
+        <div class="volumn-button d-flex">
+            <div class="volumn-icon d-flex justify-content-center align-items-center" style="font-size: 20px;"><i
+                    id="volume-icon" class="fas fa-volume-up"></i></div>
+            <div class="volumn-bar d-flex justify-content-center align-items-center">
+                <div class="progessing-3">
+                    <div class="progress progess-border-20px">
+                        <!-- <div class="progress-bar" style="width:50%; background:crimson;"></div> -->
+                        <input id="vol-control" class="track-control" type="range" min="0" max="100" step="1"
+                            value="100"
+                            style="background-image: -webkit-gradient(linear, 0% 0%, 100% 0%, color-stop(100 , crimson), color-stop(100 , #0A1A2A));border-radius : 20px;"></input>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="heart-icon d-flex justify-content-start align-items-center" style="font-size: 20px;"><i
+                class="far fa-heart"></i></div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+    <!-- <script src="../database/albums.js"></script>
+    <script src="../database/artists.js"></script>
+    <script src="../database/tracks.js"></script> -->
+    <script src="data.js"></script>
+    <script src="function.js"></script>
+    <script src="displayIndex.js"></script>
+    <script src="albumPage.js"></script>
+    <script src="artistPage.js"></script>
+    <script src="genrePage.js"></script>
+    <script src="singlePage.js"></script>
+    <script src="albumDetailPage.js"></script>
+    <script src="artistDetailPage.js"></script>
+    <script src="searchPage.js"></script>
+
+
+</body>
+
+</html>
