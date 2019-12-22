@@ -350,7 +350,7 @@
 
 
 .main-left {
-    width: 85%;
+    width: 90%;
 }
 
 .main-right {
@@ -889,6 +889,7 @@
 .artist-page-artist-card {
     height: 100%;
     width: 15%;
+    margin-bottom: 20px;
 }
 
 .artist-page-artist-img {
@@ -1082,6 +1083,8 @@
     width: 100%;
     position: relative;
     z-index: 0;
+   margin-bottom: 20px ;
+
 }
 
 /* 
@@ -1173,7 +1176,7 @@
 }
 
 .genre-page-artist-list-row {
-    height: 165px;
+    /* height: 165px; */
     width: 100%;
     margin: auto;
     margin-bottom: 20px;
@@ -1187,7 +1190,7 @@
 .genre-page-artist-card-img {
     height: 80%;
     width: 100%;
-   
+   margin-bottom: 20px ;
 
 }
 

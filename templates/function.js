@@ -390,7 +390,9 @@ function roundImage() {
     let artistHomePageImgWidth = $('.circle-img').width();
     console.log(artistHomePageImgWidth)
     $('.circle-img').css({'height':artistHomePageImgWidth+'px'});
-    $('.circle-img').css({'margin-bottom':'10'+'px'});
+    // $('.circle-img').css({'margin-bottom':'50'+'px'});
+    // $('.circle-img').css({'max-height':'100'+'%'});
+
 
     
     window.onresize = function() {
