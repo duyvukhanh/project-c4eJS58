@@ -33,6 +33,7 @@ function displayArtistDetailPage(inputGenre, inputAlbums, inputSingles) {
     assignSingleRowArtistDetailPage(inputSingles);
     assignArtistDetailSingleCard(reversedArr(inputSingles));
     assignArtistDetailAlbumCard(reversedArr(inputAlbums));
+    roundImage()
 }
 // displayArtistDetailPage(`Alo alo`,albums,tracks)
 
@@ -69,7 +70,7 @@ function assignArtistDetailSingleCard(inputSingles) {
                 content += `
                         <div class="genre-page-single-card">
                             <div class="genre-page-single-card-img" onclick="playFirstTime('${inputSingles[i*6+j-1].id}')">
-                                <img src="${inputSingles[i*6+j-1].cover}" alt="">
+                                <img class="circle-img" src="${inputSingles[i*6+j-1].cover}" alt="">
                             </div>
                             
 
@@ -88,7 +89,7 @@ function assignArtistDetailSingleCard(inputSingles) {
                 content += `
                         <div class="genre-page-single-card">
                             <div class="genre-page-single-card-img" onclick="playFirstTime('${inputSingles[i*6+j-1].id}')">
-                                <img src="${inputSingles[i*6+j-1].cover}" alt="">
+                                <img class="circle-img" src="${inputSingles[i*6+j-1].cover}" alt="">
                             </div>
                             <div class="genre-page-single-card-detail">
                                 <div class="genre-page-single-card-title d-flex align-items-end" onclick="playFirstTime('${inputSingles[i*6+j-1].id}')">
@@ -111,7 +112,7 @@ function assignArtistDetailSingleCard(inputSingles) {
             content1 += `
                         <div class="genre-page-single-card">
                             <div class="genre-page-single-card-img" onclick="playFirstTime('${inputSingles[numberOfRow6Singles*6+i].id}')">
-                                <img src="${inputSingles[numberOfRow6Singles*6+i].cover}" alt="">
+                                <img class="circle-img" src="${inputSingles[numberOfRow6Singles*6+i].cover}" alt="">
                             </div>
                             <div class="genre-page-single-card-detail">
                                 <div class="genre-page-single-card-title d-flex align-items-end" onclick="playFirstTime('${inputSingles[numberOfRow6Singles*6+i].id}')">

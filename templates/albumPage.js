@@ -22,6 +22,7 @@ function displayAlbumPage(inputString,inputAlbums) {
     document.getElementById("main").innerHTML = content;
     assignRowAlbumPage(inputAlbums);
     assignAlbumPageCard(reversedArr(inputAlbums));
+    roundImage()
 }
 
 // displayAlbumPage();

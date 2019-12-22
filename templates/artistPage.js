@@ -19,6 +19,7 @@ function displayArtistPage(inputString,inputArtists) {
     document.getElementById("main").innerHTML = content;
     assignRowArtistPage(inputArtists)
     assignArtistPageCard(inputArtists)
+    roundImage()
 }
 
 // displayArtistPage()
@@ -46,7 +47,7 @@ function assignArtistPageCard(inputArtists) {
                 content += `
                         <div class="artist-page-artist-card">
                             <div class="artist-page-artist-img d-flex justify-content-center align-items-center" onclick="displayArtistDetailPage(getArtistById('${inputArtists[i*6+j-1].id}'),getAlbumListByArtistId('${inputArtists[i*6+j-1].id}'),getSingleListByArtistId('${inputArtists[i*6+j-1].id}'))">
-                                <img src="${inputArtists[i*6+j-1].cover}" alt="">
+                                <img class="circle-img" src="${inputArtists[i*6+j-1].cover}" alt="">
                             </div>
                             <div
                                 class="artist-page-artist-name d-flex justify-content-center align-items-center" onclick="displayArtistDetailPage(getArtistById('${inputArtists[i*6+j-1].id}'),getAlbumListByArtistId('${inputArtists[i*6+j-1].id}'),getSingleListByArtistId('${inputArtists[i*6+j-1].id}'))"> 
@@ -59,7 +60,7 @@ function assignArtistPageCard(inputArtists) {
                 content += `
                         <div class="artist-page-artist-card">
                             <div class="artist-page-artist-img d-flex justify-content-center align-items-center" onclick="displayArtistDetailPage(getArtistById('${inputArtists[i*6+j-1].id}'),getAlbumListByArtistId('${inputArtists[i*6+j-1].id}'),getSingleListByArtistId('${inputArtists[i*6+j-1].id}'))">
-                                <img src="${inputArtists[i*6+j-1].cover}" alt="">
+                                <img class="circle-img" src="${inputArtists[i*6+j-1].cover}" alt="">
                             </div>
                             <div
                                 class="artist-page-artist-name d-flex justify-content-center align-items-center" onclick="displayArtistDetailPage(getArtistById('${inputArtists[i*6+j-1].id}'),getAlbumListByArtistId('${inputArtists[i*6+j-1].id}'),getSingleListByArtistId('${inputArtists[i*6+j-1].id}'))">
@@ -80,7 +81,7 @@ function assignArtistPageCard(inputArtists) {
                 <div class="artist-page-row d-flex">
                     <div class="artist-page-artist-card">
                         <div class="artist-page-artist-img d-flex justify-content-center align-items-center" onclick="displayArtistDetailPage(getArtistById('${inputArtists[numberOfRow6Artists*6+i].id}'),getAlbumListByArtistId('${inputArtists[numberOfRow6Artists*6+i].id}'),getSingleListByArtistId('${inputArtists[numberOfRow6Artists*6+i].id}'))">
-                            <img src="${inputArtists[numberOfRow6Artists*6+i].cover}" alt="">
+                            <img class="circle-img" src="${inputArtists[numberOfRow6Artists*6+i].cover}" alt="">
                         </div>
                         <div class="artist-page-artist-name d-flex justify-content-center align-items-center" onclick="displayArtistDetailPage(getArtistById('${inputArtists[numberOfRow6Artists*6+i].id}'),getAlbumListByArtistId('${inputArtists[numberOfRow6Artists*6+i].id}'),getSingleListByArtistId('${inputArtists[numberOfRow6Artists*6+i].id}'))">
                             <span>${inputArtists[numberOfRow6Artists*6+i].name}</span>

@@ -60,21 +60,20 @@ function displayIndex() {
                 </div>
             </div>
 
-            <div class="footer-box d-flex justify-content-center align-items-center">
-                <div class="page-footer d-flex justify-content-center align-items-center">
-                    Enjoy Music with Narrative
-                </div>
-            </div>
+            
 
 
         </div>
         <div class="main-right"></div>
     `;
     document.getElementById("main").innerHTML = content;
-    displayCarousel();
+    displayBanner();
+    // displayCarousel();
     displayAlbumCard(albums, artists)
     displayArtistCard(artists)
     displayTopSong(tracks, artists, albums)
+    roundImage()
+
 }
 displayIndex()
 
@@ -107,7 +106,7 @@ function displayArtistCard(artists) {
         content += `
             <div class="artist-card">
                 <div class="artist-image-home-page d-flex justify-content-center align-items-center" onclick="displayArtistDetailPage(getArtistById('${artists[i].id}'),getAlbumListByArtistId('${artists[i].id}'),getSingleListByArtistId('${artists[i].id}'))">
-                    <img src="${artists[i].cover}" alt="">
+                    <img class="circle-img" src="${artists[i].cover}" alt="">
                 </div>
                 <div class="artist-detail-home-page d-flex justify-content-center align-items-center">
                     <div class="artist-name-home-page" onclick="displayArtistDetailPage(getArtistById('${artists[i].id}'),getAlbumListByArtistId('${artists[i].id}'),getSingleListByArtistId('${artists[i].id}'))">
@@ -120,14 +119,14 @@ function displayArtistCard(artists) {
 }
 
 function displayCarousel() {
-    let content = `<div class="carousel-sector-inside">
+    let content = `<div class="carousel-sector-inside carousel-sector">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
         </ol>
-        <div class="carousel-inner">
+        <div class="carousel-inner carousel-sector">
             <div class="carousel-item slide-item-1 active">
                 <img src="../static/image/carousel/BTS.jpg" class="d-block w-100" alt="...">
             </div>
@@ -150,6 +149,13 @@ function displayCarousel() {
         </a>
         </div>
     </div>`;
+    document.getElementById("carousel").innerHTML = content;
+}
+
+function displayBanner() {
+    let content = `
+    <img src="../static/image/carousel/jayz.jpg" alt="...">
+    `;
     document.getElementById("carousel").innerHTML = content;
 }
 

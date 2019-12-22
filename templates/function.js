@@ -382,3 +382,20 @@ function searchProcess() {
     }
     displaySearchPage("Result",albumsSearched,artistsSearched,singlesSearched)
 }
+
+
+function roundImage() {
+    $(document).ready() 
+
+    let artistHomePageImgWidth = $('.circle-img').width();
+    console.log(artistHomePageImgWidth)
+    $('.circle-img').css({'height':artistHomePageImgWidth+'px'});
+    $('.circle-img').css({'margin-bottom':'10'+'px'});
+
+    
+    window.onresize = function() {
+        let artistHomePageImgWidth = $('.circle-img').width();
+        console.log(artistHomePageImgWidth)
+        $('.circle-img').css({'height':artistHomePageImgWidth+'px'});
+    }
+}
