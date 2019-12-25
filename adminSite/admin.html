@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/fontawesome/css/all.css">
+    <link rel="stylesheet" href="admin.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="admin-page-main" class="container">
+
+    </div>
+
+
+
+
+    <!-- add Album Modal -->
+    <div class="modal fade" id="addAlbum" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <form id="form-add-album" onsubmit="addAlbum(event)">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalScrollableTitle">Add Album</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="inputAlbumName">Name</label>
+                            <input type="text" required class="form-control" id="inputAlbumName">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputAlbumArtist">Artist</label>
+                            <select class="form-control" id="inputAlbumArtist">
+                                <!-- <option>Adele</option>
+                                <option>Taylor</option>
+                                <option>Bieber</option>
+                                <option>Son Tung</option>
+                                <option>BTS</option> -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputAlbumGenre">Genre</label>
+                            <select class="form-control" id="inputAlbumGenre">
+                                <!-- <option>Pop</option>
+                                <option>Rock</option>
+                                <option>Rap</option>
+                                <option>Country</option> -->
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- edit Album Modal -->
+    <div class="modal fade" id="editAlbum" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <form id="form-add-album" onsubmit="confirmEditAlbum(event)">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalScrollableTitle">Edit Album</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="inputEditAlbumId">ID</label>
+                            <input type="text" required readonly class="form-control" id="inputEditAlbumId">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEditAlbumName">Name</label>
+                            <input type="text" required class="form-control" id="inputEditAlbumName">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEditAlbumArtist">Artist</label>
+                            <select class="form-control" id="inputEditAlbumArtist">
+
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEditAlbumCover">Cover Link</label>
+                            <input type="text" required readonly class="form-control" id="inputEditAlbumCover">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEditAlbumGenre">Genre</label>
+                            <select class="form-control" id="inputEditAlbumGenre">
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Confirm</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- add Artist Modal -->
+    <div class="modal fade" id="addArtist" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <form id="form-add-artist" onsubmit="addArtist(event)">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalScrollableTitle">Add Artist</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="inputArtistName">Name</label>
+                            <input type="text" required class="form-control" id="inputArtistName">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputArtistGenre">Genre</label>
+                            <select class="form-control" id="inputArtistGenre">
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- edit Album Modal -->
+    <div class="modal fade" id="editArtist" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <form id="form-edit-artist" onsubmit="confirmEditArtist(event)">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalScrollableTitle">Edit Artist</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="inputEditArtistId">ID</label>
+                            <input type="text" required readonly class="form-control" id="inputEditArtistId">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEditArtistName">Name</label>
+                            <input type="text" required class="form-control" id="inputEditArtistName">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputEditArtistCover">Cover Link</label>
+                            <input type="text" required readonly class="form-control" id="inputEditArtistCover">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEditArtistGenre">Genre</label>
+                            <select class="form-control" id="inputEditArtistGenre">
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Confirm</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- add Single Modal -->
+    <div class="modal fade" id="addSingle" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <form id="form-add-single" onsubmit="addSingle(event)">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalScrollableTitle">Add Single</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="inputSingleName">Name</label>
+                            <input type="text" required class="form-control" id="inputSingleName">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputSingleAlbum">Album</label>
+                            <select class="form-control" id="inputSingleAlbum">
+
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- edit Album Modal -->
+    <div class="modal fade" id="editSingle" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <form id="form-edit-single" onsubmit="confirmEditSingle(event)">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalScrollableTitle">Edit Single</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="inputEditSingleId">ID</label>
+                            <input type="text" required readonly class="form-control" id="inputEditSingleId">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEditSingleName">Name</label>
+                            <input type="text" required class="form-control" id="inputEditSingleName">
+                        </div>
+                        <!-- <div class="form-group">
+                            <label for="inputEditSingleArtist">Artist</label>
+                            <select class="form-control" id="inputEditSingleArtist">
+
+                            </select>
+                        </div> -->
+                        <div class="form-group">
+                            <label for="inputEditSingleAlbum">Album</label>
+                            <select class="form-control" id="inputEditSingleAlbum">
+
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEditSingleCover">Cover Link</label>
+                            <input type="text" required readonly class="form-control" id="inputEditSingleCover">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEditSingleUrl">MP3 Link</label>
+                            <input type="text" required readonly class="form-control" id="inputEditSingleUrl">
+                        </div>
+                        <!-- <div class="form-group">
+                            <label for="inputEditSingleGenre">Genre</label>
+                            <select class="form-control" id="inputEditSingleGenre">
+
+                            </select>
+                        </div> -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Confirm</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+    <script src="function.js"></script>
+    <script src="admin.js"></script>
+    <script src="adminAlbumsPage.js"></script>
+    <script src="adminArtistsPage.js"></script>
+    <script src="adminSinglesPage.js"></script>
+</body>
+
+</html>
