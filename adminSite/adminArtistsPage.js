@@ -37,6 +37,10 @@ function displayArtistsAdmin() {
     </tbody></table>
     `;
     document.getElementById("admin-page-main").innerHTML = content;
+    document.getElementById("nav-item-1").className = "nav-item mx-2"
+    document.getElementById("nav-item-2").className = "nav-item mx-2"
+    document.getElementById("nav-item-3").className = "nav-item active mx-2"
+    document.getElementById("nav-item-4").className = "nav-item mx-2"
 }
 
 
