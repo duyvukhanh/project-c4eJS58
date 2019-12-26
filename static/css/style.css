@@ -16,6 +16,19 @@
     overflow-x: hidden;
     /* padding-top: 20px; */
 }
+.navbar-right {
+    background-color: #1D2D3C;
+    height: 93vh;
+    width: 15%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    margin-left: 85% ;
+    /* background-color: #111; */
+    overflow-x: hidden;
+    /* padding-top: 20px; */
+}
 
 
 
@@ -34,20 +47,11 @@
 }
 
 
-/* .sidenav a {
-      padding: 6px 8px 6px 16px;
-      text-decoration: none;
-      font-size: 25px;
-      color: #818181;
-      display: block;
-  }
-    
-  .sidenav a:hover {
-      color: #f1f1f1;
-  } */
+
 
 .main {
     margin-left: 15%;
+    margin-right: 15%;
     margin-bottom: 7vh;
     padding-bottom: 5px;
     /* Same as the width of the sidenav */

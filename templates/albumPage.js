@@ -33,7 +33,7 @@ function displayAlbumPage(inputString,inputAlbums) {
 function assignRowAlbumPage(inputAlbums) {
     content =``;
     let numberOfRow = Math.ceil(inputAlbums.length/5);
-    console.log(numberOfRow);
+    
 
     for (let i = 0; i < numberOfRow; i++) {
         content += `

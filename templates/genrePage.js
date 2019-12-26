@@ -65,13 +65,33 @@ function assignArtistRowGenrePage(inputArtists) {
 
 function assignAlbumRowGenrePage(inputAlbums) {
     content = ``;
-    let numberOfRowAlbum = Math.ceil(inputAlbums.length / 6);
-    for (let i = 0; i < numberOfRowAlbum; i++) {
-        content += `
-        <div id="genre-page-album-row-${i}" class="genre-page-album-list-row d-flex"></div>
-        `;
-        
-    }
+    // let numberOfRowAlbum = Math.ceil(inputAlbums.length / 6);
+    if (inputAlbums.length === 0) {
+        content = `
+            <div id="genre-page-album-row-0" class="genre-page-album-list-row d-flex style="height:0px;"></div>
+            `;
+    } else if (inputAlbums.length > 6) {
+        let numberOfRowAlbum = Math.ceil(inputAlbums.length / 6);
+        for (let i = 0; i < numberOfRowAlbum; i++) {
+            content += `
+            <div id="genre-page-album-row-${i}" class="genre-page-album-list-row d-flex"></div>
+            `;
+        }
+    } else {
+        content = `
+            <div id="genre-page-album-row-0" class="genre-page-album-list-row d-flex"></div>
+            `;
+    }   
+
+
+
+    // for (let i = 0; i < numberOfRowAlbum; i++) {
+    //     content += `
+    //     <div id="genre-page-album-row-${i}" class="genre-page-album-list-row d-flex"></div>
+    //     `;
+    //     console.log("number of row album : " + numberOfRowAlbum)
+    //     console.log(inputAlbums)
+    // }
     document.getElementById("genre-page-album-box").innerHTML = content;
 }
 
@@ -288,7 +308,7 @@ function assignGenrePageAlbumCard(inputAlbums) {
         }
         document.getElementById(`genre-page-album-row-${i}`).innerHTML = content;
     }
-    if (numberOfRow6Albums <= 1) {
+    if (numberOfRow6Albums < 1) {
         let du = inputAlbums.length - (numberOfRow6Albums * 6);
         let content1 = ``;
         for (let i = 0; i < du; i++) {
@@ -314,9 +334,7 @@ function assignGenrePageAlbumCard(inputAlbums) {
                           
             `;
         }
-        console.log(numberOfRow6Albums)
-        console.log(document.getElementById(`genre-page-album-row-${numberOfRow6Albums}`))
-        console.log(`genre-page-album-row-${numberOfRow6Albums}`)
+        
         
         document.getElementById(`genre-page-album-row-${numberOfRow6Albums}`).innerHTML = content1;
     }
