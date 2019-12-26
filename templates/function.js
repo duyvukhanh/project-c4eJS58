@@ -388,7 +388,7 @@ function roundImage() {
     $(document).ready() 
 
     let artistHomePageImgWidth = $('.circle-img').width();
-    console.log(artistHomePageImgWidth)
+    // console.log(artistHomePageImgWidth)
     $('.circle-img').css({'height':artistHomePageImgWidth+'px'});
     // $('.circle-img').css({'margin-bottom':'50'+'px'});
     // $('.circle-img').css({'max-height':'100'+'%'});
@@ -397,7 +397,13 @@ function roundImage() {
     
     window.onresize = function() {
         let artistHomePageImgWidth = $('.circle-img').width();
-        console.log(artistHomePageImgWidth)
+        // console.log(artistHomePageImgWidth)
         $('.circle-img').css({'height':artistHomePageImgWidth+'px'});
     }
 }
+
+
+function addNoimageToAllImgTag() {
+    $("img").attr("onError","this.onerror=null;this.src='../static/image/no-image.png';")
+}
+addNoimageToAllImgTag()

@@ -1,18 +1,43 @@
-var tracks = JSON.parse(localStorage.getItem("trackListStorage"));
-var albums = JSON.parse(localStorage.getItem("albumListStorage"));
-var artists = JSON.parse(localStorage.getItem("artistListStorage"));
-var genreList = ["pop","rock","rap","country"]
+// var tracks = JSON.parse(localStorage.getItem("trackListStorage"));
+// var albums = JSON.parse(localStorage.getItem("albumListStorage"));
+// var artists = JSON.parse(localStorage.getItem("artistListStorage"));
+// var genreList = ["pop","rock","rap","country"]
+
+// let isTracksExistTest = localStorage.getItem("trackListStorageTest");
+// if (!isTracksExistTest) {
+//     localStorage.setItem("trackListStorageTest",JSON.stringify(tracks));
+// } 
+
+// let isAlbumsExistTest = localStorage.getItem("albumListStorageTest");
+// if (!isAlbumsExistTest) {
+//     localStorage.setItem("albumListStorageTest",JSON.stringify(albums));
+// } 
+
+// let isArtistsExistTest = localStorage.getItem("artistListStorageTest");
+// if (!isArtistsExistTest) {
+//     localStorage.setItem("artistListStorageTest",JSON.stringify(artists));
+// } 
+
+// let tracks = JSON.parse(localStorage.getItem("trackListStorage"));
+// let albums = JSON.parse(localStorage.getItem("albumListStorage"));
+// let artists = JSON.parse(localStorage.getItem("artistListStorage"));
+let genreList = ["pop","rock","rap","country"]
+
+// console.log(albums)
 
 
 
 function displayAdminIndex() {
+    let tracks = JSON.parse(localStorage.getItem("trackListStorage"));
+    let albums = JSON.parse(localStorage.getItem("albumListStorage"));
+    let artists = JSON.parse(localStorage.getItem("artistListStorage"));
     content = `
         <h1>Admin</h1>
         <br>
 
         <table class="table table-striped table-hover">
             
-            <tbody class="">
+            <tbody class="table-bodyy">
                 <tr class="table-dard" onclick="displayAlbumsAdmin()">
                     <td>Albums</td>
                 </tr>

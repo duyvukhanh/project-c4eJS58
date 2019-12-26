@@ -20,6 +20,8 @@ function displayArtistPage(inputString,inputArtists) {
     assignRowArtistPage(inputArtists)
     assignArtistPageCard(inputArtists)
     roundImage()
+    addNoimageToAllImgTag()
+
 }
 
 // displayArtistPage()
@@ -28,7 +30,7 @@ function displayArtistPage(inputString,inputArtists) {
 function assignRowArtistPage(inputArtists) {
     content =``;
     let numberOfRow = Math.ceil(inputArtists.length/6);
-    for (let i = 0; i <= numberOfRow; i++) {
+    for (let i = 0; i < numberOfRow; i++) {
         content += `
         <div id="artist-page-row-${i}" class="artist-page-row d-flex align-items-center"></div>
         `;
@@ -67,7 +69,7 @@ function assignArtistPageCard(inputArtists) {
                                 <span>${inputArtists[i*6+j-1].name}</span>
                             </div>
                         </div>
-                        <div class="sub-artist-page-artist-card" style="width: 2%; height: 100%;"></div>
+                        <div class="sub-artist-page-artist-card" style="width: 0%; height: 100%;"></div>
                 `;
             } 
         }
@@ -78,7 +80,7 @@ function assignArtistPageCard(inputArtists) {
     let content1 = ``;
     for (let i = 0; i < du; i++) {
         content1 += `
-                <div class="artist-page-row d-flex">
+                
                     <div class="artist-page-artist-card">
                         <div class="artist-page-artist-img d-flex justify-content-center align-items-center" onclick="displayArtistDetailPage(getArtistById('${inputArtists[numberOfRow6Artists*6+i].id}'),getAlbumListByArtistId('${inputArtists[numberOfRow6Artists*6+i].id}'),getSingleListByArtistId('${inputArtists[numberOfRow6Artists*6+i].id}'))">
                             <img class="circle-img" src="${inputArtists[numberOfRow6Artists*6+i].cover}" alt="">
@@ -88,7 +90,7 @@ function assignArtistPageCard(inputArtists) {
                         </div>
                     </div>
                     <div class="sub-artist-page-artist-card" style="width: 2%; height: 100%;"></div>
-                </div> 
+                
         `;
     }
     document.getElementById(`artist-page-row-${numberOfRow6Artists}`).innerHTML = content1;

@@ -1,3 +1,7 @@
+let tracks = JSON.parse(localStorage.getItem("trackListStorage"));
+let albums = JSON.parse(localStorage.getItem("albumListStorage"));
+let artists = JSON.parse(localStorage.getItem("artistListStorage"));
+
 function getArtistById(artistId) {
     for (let i = 0; i < artists.length; i++) {
         if (artists[i].id == artistId) {

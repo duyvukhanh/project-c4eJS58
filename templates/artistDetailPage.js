@@ -34,6 +34,8 @@ function displayArtistDetailPage(inputGenre, inputAlbums, inputSingles) {
     assignArtistDetailSingleCard(reversedArr(inputSingles));
     assignArtistDetailAlbumCard(reversedArr(inputAlbums));
     roundImage()
+    addNoimageToAllImgTag()
+
 }
 // displayArtistDetailPage(`Alo alo`,albums,tracks)
 

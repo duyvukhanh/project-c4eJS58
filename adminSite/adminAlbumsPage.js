@@ -1,7 +1,10 @@
 function displayAlbumsAdmin() {
+     tracks = JSON.parse(localStorage.getItem("trackListStorage"));
+     albums = JSON.parse(localStorage.getItem("albumListStorage"));
+     artists = JSON.parse(localStorage.getItem("artistListStorage"));
     content = `<h1>Albums</h1>
     </br>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addAlbum">Add</button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addAlbum" onclick="onclickAddAlbum()">Add</button>
     
     </br>
     </br>
@@ -46,19 +49,41 @@ function displayAlbumsAdmin() {
 }
 
 function deleteAlbum(albumId) {
+     tracks = JSON.parse(localStorage.getItem("trackListStorage"));
+     albums = JSON.parse(localStorage.getItem("albumListStorage"));
+     artists = JSON.parse(localStorage.getItem("artistListStorage"));
     if (confirm("Are you sure to delete?")) {
         for (let i = 0; i < albums.length; i++) {
             if (albums[i].id === albumId) {
+                let listSongToDelete = albums[i].playlist;
+                // console.log(listSongToDelete)
+
+                for (let k = 0; k < listSongToDelete.length; k++) {
+                    for (let j = 0; j < tracks.length; j++) {
+                        if (listSongToDelete[k] === tracks[j].id) {
+                            // console.log(tracks[j].id)
+                            // console.log(listSongToDelete[k])
+
+                            tracks.splice(j,1)
+                        }             
+                    }
+                }
                 albums.splice(i, 1);
                 break;
             }
         }
+        
+        localStorage.setItem("trackListStorage",JSON.stringify(tracks))
+        localStorage.setItem("albumListStorage",JSON.stringify(albums))
         displayAlbumsAdmin();
     }
 }
 
 
 function assignArtistToAddAlbum() {
+     tracks = JSON.parse(localStorage.getItem("trackListStorage"));
+     albums = JSON.parse(localStorage.getItem("albumListStorage"));
+     artists = JSON.parse(localStorage.getItem("artistListStorage"));
     let content = ``;
     for (let i = 0; i < artists.length; i++) {
         content += `
@@ -67,10 +92,12 @@ function assignArtistToAddAlbum() {
     }
     document.getElementById("inputAlbumArtist").innerHTML = content;
 }
-assignArtistToAddAlbum()
 
 
 function assignGenreToAddAlbum() {
+     tracks = JSON.parse(localStorage.getItem("trackListStorage"));
+     albums = JSON.parse(localStorage.getItem("albumListStorage"));
+     artists = JSON.parse(localStorage.getItem("artistListStorage"));
     let content = ``;
     for (let i = 0; i < genreList.length; i++) {
         content += `
@@ -79,25 +106,33 @@ function assignGenreToAddAlbum() {
     }
     document.getElementById("inputAlbumGenre").innerHTML = content;
 }
-assignGenreToAddAlbum()
+
+function onclickAddAlbum() {
+    assignArtistToAddAlbum()
+    assignGenreToAddAlbum()
+}
 
 function addAlbum(e) {
+     tracks = JSON.parse(localStorage.getItem("trackListStorage"));
+     albums = JSON.parse(localStorage.getItem("albumListStorage"));
+     artists = JSON.parse(localStorage.getItem("artistListStorage"));
     e.preventDefault();
     let date = new Date().getTime();
     let inputAlbumName = document.getElementById("inputAlbumName").value;
     let inputAlbumArtist = document.getElementById("inputAlbumArtist").value;
     let inputAlbumGenre = document.getElementById("inputAlbumGenre").value;
     let inputAlbumId = "album" + date;
-    let inputAlbumCover = "../static/image/AlbumCover/" + inputAlbumId;
+    let inputAlbumCover = "../static/image/AlbumCover/" + inputAlbumId + ".jpg";
 
     let newAlbum = initNewAlbum();
     newAlbum.name = inputAlbumName;
     newAlbum.artist = getArtistIdByArtistName(inputAlbumArtist);
-    newAlbum.genre = inputAlbumGenre;
+    newAlbum.genre = inputAlbumGenre.toLowerCase();
     newAlbum.id = inputAlbumId;
     newAlbum.cover = inputAlbumCover;
 
     albums.push(newAlbum);
+    localStorage.setItem("albumListStorage",JSON.stringify(albums))
     document.getElementById("form-add-album").reset()
 
     displayAlbumsAdmin();
@@ -109,6 +144,9 @@ function addAlbum(e) {
 
 
 function assignArtistToEditAlbum(albumArtist) {
+     tracks = JSON.parse(localStorage.getItem("trackListStorage"));
+     albums = JSON.parse(localStorage.getItem("albumListStorage"));
+     artists = JSON.parse(localStorage.getItem("artistListStorage"));
     let content = ``;
     for (let i = 0; i < artists.length; i++) {
         if (artists[i].id === albumArtist) {
@@ -127,13 +165,12 @@ function assignArtistToEditAlbum(albumArtist) {
 
 
 function assignGenreToEditAlbum(albumGenre) {
+     tracks = JSON.parse(localStorage.getItem("trackListStorage"));
+     albums = JSON.parse(localStorage.getItem("albumListStorage"));
+     artists = JSON.parse(localStorage.getItem("artistListStorage"));
     let content = ``;
     for (let i = 0; i < genreList.length; i++) {
         if (genreList[i] === albumGenre) {
-            console.log(albumGenre)
-            console.log(genreList[i])
-
-
             content += `
             <option selected="selected"> ${genreList[i].toUpperCase()} </option>
             `;
@@ -148,6 +185,9 @@ function assignGenreToEditAlbum(albumGenre) {
 
 
 function editAlbum(albumId) {
+     tracks = JSON.parse(localStorage.getItem("trackListStorage"));
+     albums = JSON.parse(localStorage.getItem("albumListStorage"));
+     artists = JSON.parse(localStorage.getItem("artistListStorage"));
     let currentAlbum
     for (let i = 0; i < albums.length; i++) {
         if (albums[i].id === albumId) {
@@ -164,6 +204,9 @@ function editAlbum(albumId) {
 
 
 function confirmEditAlbum(e) {
+     tracks = JSON.parse(localStorage.getItem("trackListStorage"));
+     albums = JSON.parse(localStorage.getItem("albumListStorage"));
+     artists = JSON.parse(localStorage.getItem("artistListStorage"));
     e.preventDefault();
     let inputEditAlbumId = document.getElementById("inputEditAlbumId").value;
     
@@ -175,13 +218,15 @@ function confirmEditAlbum(e) {
         if (albums[i].id === inputEditAlbumId) {
             albums[i].name = inputEditAlbumName;
             albums[i].artist = getArtistIdByArtistName(inputEditAlbumArtist);
-            albums[i].genre = inputEditAlbumGenre;
+            albums[i].genre = inputEditAlbumGenre.toLowerCase();
             console.log(albums[i].name)
             console.log(albums[i].artist)
             console.log(albums[i].genre)
             break;
         }
     }
+    localStorage.setItem("albumListStorage",JSON.stringify(albums))
+
     $('#editAlbum').modal('hide')
     displayAlbumsAdmin();
     

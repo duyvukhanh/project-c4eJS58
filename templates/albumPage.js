@@ -23,6 +23,8 @@ function displayAlbumPage(inputString,inputAlbums) {
     assignRowAlbumPage(inputAlbums);
     assignAlbumPageCard(reversedArr(inputAlbums));
     roundImage()
+    addNoimageToAllImgTag()
+
 }
 
 // displayAlbumPage();

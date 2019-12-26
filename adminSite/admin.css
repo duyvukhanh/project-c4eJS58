@@ -35,3 +35,7 @@
     color: black;
 }
 
+.table-bodyy tr:hover {
+    cursor: pointer;
+}
+

@@ -22,6 +22,8 @@ function displaySinglePage(inputGenre,inputSingles) {
     assignSingleRowSinglePage(inputSingles);
     assignSinglePageSingleCard(reversedArr(inputSingles));
     roundImage()
+    addNoimageToAllImgTag()
+
 }
 // displaySinglePage("ALL SINGLES",tracks)
 

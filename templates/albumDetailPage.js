@@ -21,6 +21,8 @@ function displayAlbumDetailPage(inputAlbum) {
     `;
     document.getElementById("main").innerHTML = content
     displayAlbumDetailPagePlayList(inputAlbum.playlist)
+    addNoimageToAllImgTag()
+
 }
 
 // displayAlbumDetailPage(albums[1],albums[1].playlist);
@@ -41,4 +43,6 @@ function displayAlbumDetailPagePlayList(inputTrackList) {
         `;
     }
     document.getElementsByClassName("album-detail-page-tracklist-sector")[0].innerHTML = content;
+    addNoimageToAllImgTag()
+    
 }

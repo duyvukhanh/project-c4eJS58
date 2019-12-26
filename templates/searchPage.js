@@ -47,6 +47,8 @@ function displaySearchPage(inputGenre, inputAlbums, inputArtists, inputSingles) 
     assignSearchPageSingleCard(reversedArr(inputSingles));
     assignSearchPageAlbumCard(reversedArr(inputAlbums));
     roundImage()
+    addNoimageToAllImgTag()
+
 }
 
 

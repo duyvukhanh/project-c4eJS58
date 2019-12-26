@@ -73,6 +73,7 @@ function displayIndex() {
     displayArtistCard(artists)
     displayTopSong(tracks, artists, albums)
     roundImage()
+    addNoimageToAllImgTag()
 
 }
 displayIndex()

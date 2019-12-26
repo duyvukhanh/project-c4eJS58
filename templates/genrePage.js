@@ -44,6 +44,8 @@ function displayGenrePage(inputGenre,inputAlbums,inputArtists,inputSingles) {
     assignGenrePageSingleCard(reversedArr(inputSingles));
     assignGenrePageAlbumCard(reversedArr(inputAlbums));
     roundImage()
+    addNoimageToAllImgTag()
+
 }
 
 
@@ -68,9 +70,7 @@ function assignAlbumRowGenrePage(inputAlbums) {
         content += `
         <div id="genre-page-album-row-${i}" class="genre-page-album-list-row d-flex"></div>
         `;
-        if (i === 1) {
-            break;
-        }
+        
     }
     document.getElementById("genre-page-album-box").innerHTML = content;
 }
@@ -314,6 +314,10 @@ function assignGenrePageAlbumCard(inputAlbums) {
                           
             `;
         }
+        console.log(numberOfRow6Albums)
+        console.log(document.getElementById(`genre-page-album-row-${numberOfRow6Albums}`))
+        console.log(`genre-page-album-row-${numberOfRow6Albums}`)
+        
         document.getElementById(`genre-page-album-row-${numberOfRow6Albums}`).innerHTML = content1;
     }
 
