@@ -407,3 +407,6 @@ function addNoimageToAllImgTag() {
     $("img").attr("onError","this.onerror=null;this.src='../static/image/no-image.png';")
 }
 addNoimageToAllImgTag()
+
+
+

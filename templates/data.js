@@ -443,6 +443,11 @@ var artists = JSON.parse(localStorage.getItem("artistListStorage"));
 
 
 
+let currentPlaylist = []
+for (let i = 0; i < 4; i++) {
+    const album = albums[i];
+    currentPlaylist.push(album)
+}
 
 
 

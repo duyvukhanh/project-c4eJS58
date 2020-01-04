@@ -166,7 +166,7 @@ function displayTopSong(tracks, artists, albums) {
         content += `
         <li class="d-flex align-items-center">
             <div class="hot-song-cover d-flex justify-content-center align-items-center">
-                <img src="${getImgByAlbumId(tracks[i].album,albums)}" alt="">
+                <img src="${getTrackCoverByTrackId(tracks[i].id)}" alt="">
             </div>
             
             <div class="hot-song-title-and-artist d-flex justify-content-between align-items-center">

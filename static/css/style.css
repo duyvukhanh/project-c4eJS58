@@ -16,6 +16,7 @@
     overflow-x: hidden;
     /* padding-top: 20px; */
 }
+
 .navbar-right {
     background-color: #1D2D3C;
     height: 93vh;
@@ -24,7 +25,7 @@
     z-index: 1;
     top: 0;
     left: 0;
-    margin-left: 85% ;
+    margin-left: 85%;
     /* background-color: #111; */
     overflow-x: hidden;
     /* padding-top: 20px; */
@@ -59,7 +60,11 @@
     /* Increased text to enable scrolling */
     /* margin-right: 15%; Same as the width of the sidenav */
     /* height: 300vh; */
-    background-color: #0A1A2A;
+    /* background-color: #0A1A2A; */
+    background : radial-gradient(circle, #1D2D3C 10%, #0A1A2A 90%);
+    background : -moz-radial-gradient(circle, #1D2D3C 10%, #0A1A2A 90%);
+    background : -webkit-radial-gradient(circle, #1D2D3C 10%, #0A1A2A 90%);
+    background : -o-radial-gradient(circle, #1D2D3C 10%, #0A1A2A 90%);
     /* background-image: linear-gradient(#0A1A2A 70%, rgb(80, 99, 119), #0A1A2A 70%); */
     min-height: 100vh;
 }
@@ -71,6 +76,31 @@
     height: 90%;
     width: 90%;
 }
+
+
+.main-right-playlist-text {
+    color: lightgray;
+    font-size: 20px;
+    text-transform: uppercase;
+    height: 10%;
+    width: 100%;
+    padding-top: 40px;
+}
+
+.play-list-tag-box {
+    height: 90%;
+    width: 100%;
+}
+
+.playlist-card {
+    width: 90%;
+    margin: auto;
+    height: 50px;
+    margin-top: 10px;
+}
+
+
+
 
 .header-left {
     height: 20%;
@@ -373,12 +403,12 @@
     height: 550px;
     width: 85%;
     margin: auto;
-    margin-top: 40px ;
-    margin-bottom: 40px ;
+    margin-top: 40px;
+    margin-bottom: 40px;
 
 }
 
-.carousel-sector img{
+.carousel-sector img {
     width: 100% !important;
     height: 100%;
     max-height: 100%;
@@ -419,7 +449,7 @@
 .carousel-item img {
     margin-top: 20px;
     width: 100% !important;
-    height: 100%; 
+    height: 100%;
     max-height: 100% !important;
 }
 
@@ -786,7 +816,7 @@
     color: lightgray;
     font-size: 22px;
     margin: auto;
-    margin-bottom: 30px ;
+    margin-bottom: 30px;
 }
 
 .album-page-drop-down-btn {
@@ -803,7 +833,7 @@
 .album-page-row {
     height: 300px;
     width: 100%;
-    margin-bottom: 50px ;
+    margin-bottom: 50px;
 }
 
 .album-page-album-card {
@@ -828,11 +858,11 @@
     cursor: pointer;
 }
 
-.album-page-album-detail{
+.album-page-album-detail {
     height: 25%;
     width: 100%;
-    padding-left: 10px ;
-    padding-right: 10px ;
+    padding-left: 10px;
+    padding-right: 10px;
     background-color: #293E54;
 }
 
@@ -887,7 +917,7 @@
 .artist-page-row {
     height: 200px;
     width: 100%;
-    margin-bottom: 50px ;
+    margin-bottom: 50px;
 }
 
 .artist-page-artist-card {
@@ -995,7 +1025,7 @@
     width: 100%;
 }
 
-.genre-page-album-card-img img{
+.genre-page-album-card-img img {
     width: 100%;
     height: 100%;
     max-width: 100%;
@@ -1087,7 +1117,7 @@
     width: 100%;
     position: relative;
     z-index: 0;
-   margin-bottom: 20px ;
+    margin-bottom: 20px;
 
 }
 
@@ -1102,7 +1132,7 @@
     border-radius: 50%;
 } */
 
-.genre-page-single-card-img img{
+.genre-page-single-card-img img {
     position: relative;
     z-index: 0;
     width: 100%;
@@ -1194,17 +1224,17 @@
 .genre-page-artist-card-img {
     height: 80%;
     width: 100%;
-   margin-bottom: 20px ;
+    margin-bottom: 20px;
 
 }
 
-.genre-page-artist-card-img img{
+.genre-page-artist-card-img img {
     width: 90%;
     height: 90%;
     max-width: 100%;
     object-fit: cover;
     border-radius: 50%;
-    
+
 }
 
 .genre-page-artist-card-img img:hover {
@@ -1262,7 +1292,7 @@
     font-size: 20px;
     color: lightgray;
     margin-top: 15px;
-    padding-left: 15px ;
+    padding-left: 15px;
 }
 
 .album-detail-page-artist {
@@ -1270,14 +1300,15 @@
     margin: auto;
     font-size: 18px;
     color: #727D87;
-    padding-left: 15px ;
+    padding-left: 15px;
 }
-.album-detail-page-artist span{
+
+.album-detail-page-artist span {
     color: lightgray;
 }
 
 
-.album-detail-page-artist span:hover{
+.album-detail-page-artist span:hover {
     color: crimson;
     cursor: pointer;
 }
@@ -1294,8 +1325,8 @@
     font-size: 25px;
     color: lightgray;
     margin: auto;
-    margin-top:20px;
-    margin-bottom:20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .album-detail-page-tracklist-row {
@@ -1309,7 +1340,7 @@
     height: 100%;
 }
 
-.album-detail-page-tracklist-cover img{
+.album-detail-page-tracklist-cover img {
     height: 80%;
     width: 80% !important;
     max-height: 80%;
