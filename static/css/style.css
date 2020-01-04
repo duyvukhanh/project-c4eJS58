@@ -90,6 +90,8 @@
 .play-list-tag-box {
     height: 90%;
     width: 100%;
+    background-color: #293E54;
+    margin-top: 20px
 }
 
 .playlist-card {
@@ -99,8 +101,32 @@
     margin-top: 10px;
 }
 
+.playlist-detail {
+    
+    height: 90%;
+    width: 70%;
+}
 
+.playlist-detail-row {
+    padding-left: 7px;
 
+    color: lightgray;
+    height: 50%;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.playlist-img {
+    height: 90%;
+    width: 22%;
+}
+
+.playlist-img img {
+    height: 100%;
+    width: 100%;
+    max-height: 100%;
+}
 
 .header-left {
     height: 20%;

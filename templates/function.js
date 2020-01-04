@@ -188,26 +188,26 @@ function getTrackUrlByTrackId(trackId) {
 
 function getSingleByTrackId(trackId) {
     for (let i = 0; i < tracks.length; i++) {
-        if (tracks[i].id === trackId ) {
+        if (tracks[i].id === trackId) {
             return tracks[i];
-        }      
+        }
     }
 }
 
 function getAlbumByAlbumId(albumId) {
     for (let i = 0; i < albums.length; i++) {
-        if (albums[i].id === albumId ) {
+        if (albums[i].id === albumId) {
             return albums[i];
-        }      
+        }
     }
 }
 
 function getAlbumListByArtistId(artistId) {
     output = [];
     for (let i = 0; i < albums.length; i++) {
-        if (albums[i].artist === artistId ) {
+        if (albums[i].artist === artistId) {
             output.push(albums[i]);
-        }     
+        }
     }
     return output;
 }
@@ -216,9 +216,9 @@ function getAlbumListByArtistId(artistId) {
 function getSingleListByArtistId(artistId) {
     output = [];
     for (let i = 0; i < tracks.length; i++) {
-        if (tracks[i].artist === artistId ) {
+        if (tracks[i].artist === artistId) {
             output.push(tracks[i]);
-        }     
+        }
     }
     return output;
 }
@@ -228,10 +228,36 @@ function assignAudio(trackId) {
 
 }
 
+function initAudio(trackId) {
+    document.getElementById("audio-sector").innerHTML = `
+        <audio id="audio-${trackId}">
+            <source id="audio-source" src="${getTrackUrlByTrackId(trackId)}">
+        </audio>
+    `;
+    document.getElementById("track-title-nav-bot").innerHTML = getTrackNameByTrackId(trackId, tracks);
+    document.getElementById("track-artist-nav-bot").innerHTML = getArtistById(getTrackArtistByTrackId(trackId, tracks));
+    document.getElementById("track-cover-nav-bot").innerHTML = `
+        <img src="${getTrackCoverByTrackId(trackId)}" alt="">
+    `;
+    // song.pause();
+    song.currentTime = 0;
+    song = new Audio();
+    song = document.getElementById(`audio-${trackId}`);
+    // document.getElementById("play-btn").className = "fas fa-pause-circle fa-2x";
+    document.getElementById("play-btn").removeAttribute("onclick");
+    document.getElementById("play-btn").setAttribute("onclick", "pauseToPlay();");
+    song.volume = document.getElementById("vol-control").value / 100;
+    // song.play();
+    progessBar();
+
+}
+initAudio(currentPlaylist[0].id);
+
+
 function playFirstTime(trackId) {
     document.getElementById("audio-sector").innerHTML = `
         <audio id="audio-${trackId}">
-            <source src="${getTrackUrlByTrackId(trackId)}">
+            <source id="audio-source" src="${getTrackUrlByTrackId(trackId)}">
         </audio>
     `;
     document.getElementById("track-title-nav-bot").innerHTML = getTrackNameByTrackId(trackId, tracks);
@@ -251,12 +277,15 @@ function playFirstTime(trackId) {
     progessBar();
 }
 
+
 function playToPause() {
     document.getElementById("play-btn").className = "fas fa-pause-circle fa-2x";
     document.getElementById("play-btn").removeAttribute("onclick");
     document.getElementById("play-btn").setAttribute("onclick", "pauseToPlay();")
     song.play();
     progessBar();
+
+
 }
 
 function pauseToPlay() {
@@ -265,29 +294,12 @@ function pauseToPlay() {
     document.getElementById("play-btn").setAttribute("onclick", "playToPause();");
     song.pause();
     progessBar();
+
+
 }
 
 
-function progessBar() {
-    song.addEventListener('timeupdate', function () {
-        let per = (song.currentTime / song.duration);
-        if (per != 1) {
-            let style = `background-image: -webkit-gradient(linear, 0% 0%, 100% 0%, color-stop(${per} , crimson), color-stop(${per} , #0A1A2A));border-radius : 20px;`;
-            document.getElementById("track-control").removeAttribute("style");
-            document.getElementById("track-control").setAttribute("style", style);
-            document.getElementById("time-start").innerHTML = timeConvert(song.currentTime);
-            document.getElementById("time-stop").innerHTML = timeConvert(song.duration);
-        } else {
-            let style = `background-image: -webkit-gradient(linear, 0% 0%, 100% 0%, color-stop(0 , crimson), color-stop(0 , #0A1A2A));border-radius : 20px;`;
-            document.getElementById("track-control").removeAttribute("style");
-            document.getElementById("track-control").setAttribute("style", style);
-            document.getElementById("play-btn").className = "fas fa-play-circle fa-2x";
-            document.getElementById("play-btn").setAttribute("onclick", "playToPause();")
-            document.getElementById("time-start").innerHTML = `00:00`;
-            document.getElementById("time-stop").innerHTML = timeConvert(song.duration);
-        }
-    });
-}
+
 
 $('#track-control').click(function (event) {
     time = ($(this).val() / 100) * song.duration;
@@ -342,16 +354,16 @@ function reversedArr(inputArr) {
 function stringProcess(input) {
     let str = input;
     str = str.toLowerCase();
-    str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g,"a"); 
-    str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g,"e"); 
-    str = str.replace(/ì|í|ị|ỉ|ĩ/g,"i"); 
-    str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g,"o"); 
-    str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g,"u"); 
-    str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g,"y"); 
-    str = str.replace(/đ/g,"d");
-    str = str.replace(/!|@|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\;|\'|\"|\&|\#|\[|\]|~|\$|_|`|-|{|}|\||\\/g," ");
-    str = str.replace(/ + /g," ");
-    str = str.trim(); 
+    str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
+    str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
+    str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");
+    str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o");
+    str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
+    str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
+    str = str.replace(/đ/g, "d");
+    str = str.replace(/!|@|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\;|\'|\"|\&|\#|\[|\]|~|\$|_|`|-|{|}|\||\\/g, " ");
+    str = str.replace(/ + /g, " ");
+    str = str.trim();
     return str;
 }
 
@@ -363,50 +375,235 @@ function searchProcess() {
     let artistsSearched = [];
     let singlesSearched = [];
 
-    for (let i = albums.length-1; i >= 0; i--) {
+    for (let i = albums.length - 1; i >= 0; i--) {
         if (albums[i].name.toLowerCase().includes(stringProcess(search))) {
             albumsSearched.push(albums[i]);
         }
     }
 
-    for (let i = artists.length-1; i >= 0; i--) {
+    for (let i = artists.length - 1; i >= 0; i--) {
         if (artists[i].name.toLowerCase().includes(stringProcess(search))) {
             artistsSearched.push(artists[i]);
         }
     }
 
-    for (let i = tracks.length-1; i >= 0; i--) {
+    for (let i = tracks.length - 1; i >= 0; i--) {
         if (tracks[i].name.toLowerCase().includes(stringProcess(search))) {
             singlesSearched.push(tracks[i]);
         }
     }
-    displaySearchPage("Result",albumsSearched,artistsSearched,singlesSearched)
+    displaySearchPage("Result", albumsSearched, artistsSearched, singlesSearched)
 }
 
 
 function roundImage() {
-    $(document).ready() 
+    $(document).ready()
 
     let artistHomePageImgWidth = $('.circle-img').width();
     // console.log(artistHomePageImgWidth)
-    $('.circle-img').css({'height':artistHomePageImgWidth+'px'});
+    $('.circle-img').css({
+        'height': artistHomePageImgWidth + 'px'
+    });
     // $('.circle-img').css({'margin-bottom':'50'+'px'});
     // $('.circle-img').css({'max-height':'100'+'%'});
 
 
-    
-    window.onresize = function() {
+
+    window.onresize = function () {
         let artistHomePageImgWidth = $('.circle-img').width();
         // console.log(artistHomePageImgWidth)
-        $('.circle-img').css({'height':artistHomePageImgWidth+'px'});
+        $('.circle-img').css({
+            'height': artistHomePageImgWidth + 'px'
+        });
     }
 }
 
 
 function addNoimageToAllImgTag() {
-    $("img").attr("onError","this.onerror=null;this.src='../static/image/no-image.png';")
+    $("img").attr("onError", "this.onerror=null;this.src='../static/image/no-image.png';")
 }
 addNoimageToAllImgTag()
 
 
 
+let isReplay = false;
+
+function enableReplay() {
+    document.getElementById("replay-button").style.color = "crimson"
+    document.getElementById("replay-button").removeAttribute("onclick");
+    document.getElementById("replay-button").setAttribute("onclick", "disableReplay()");
+    isReplay = true;
+}
+
+function disableReplay() {
+    document.getElementById("replay-button").style.color = "lightgray"
+    document.getElementById("replay-button").removeAttribute("onclick");
+    document.getElementById("replay-button").setAttribute("onclick", "enableReplay()");
+    isReplay = false;
+}
+
+
+
+
+
+
+function progessBar() {
+    song.addEventListener('timeupdate', function () {
+        let url = document.getElementById("audio-source").getAttribute("src");
+        CrimsonPlayingTrack(url);
+        heartTrackIfInPlaylist(url);
+        nextAndPreviousTrack(url);
+        // addPlaylist(url);
+        let per = (song.currentTime / song.duration);
+        if (isReplay) {
+            if (per != 1) {
+                let style = `background-image: -webkit-gradient(linear, 0% 0%, 100% 0%, color-stop(${per} , crimson), color-stop(${per} , #0A1A2A));border-radius : 20px;`;
+                document.getElementById("track-control").removeAttribute("style");
+                document.getElementById("track-control").setAttribute("style", style);
+                document.getElementById("time-start").innerHTML = timeConvert(song.currentTime);
+                document.getElementById("time-stop").innerHTML = timeConvert(song.duration);
+            } else {
+                let style = `background-image: -webkit-gradient(linear, 0% 0%, 100% 0%, color-stop(0 , crimson), color-stop(0 , #0A1A2A));border-radius : 20px;`;
+                document.getElementById("track-control").removeAttribute("style");
+                document.getElementById("track-control").setAttribute("style", style);
+                // document.getElementById("play-btn").className = "fas fa-play-circle fa-2x";
+                // document.getElementById("play-btn").setAttribute("onclick", "playToPause();")
+                document.getElementById("time-start").innerHTML = `00:00`;
+                document.getElementById("time-stop").innerHTML = timeConvert(song.duration);
+                song.play()
+            }
+        } else {
+            if (per != 1) {
+                let style = `background-image: -webkit-gradient(linear, 0% 0%, 100% 0%, color-stop(${per} , crimson), color-stop(${per} , #0A1A2A));border-radius : 20px;`;
+                document.getElementById("track-control").removeAttribute("style");
+                document.getElementById("track-control").setAttribute("style", style);
+                document.getElementById("time-start").innerHTML = timeConvert(song.currentTime);
+                document.getElementById("time-stop").innerHTML = timeConvert(song.duration);
+            } else {
+                let style = `background-image: -webkit-gradient(linear, 0% 0%, 100% 0%, color-stop(0 , crimson), color-stop(0 , #0A1A2A));border-radius : 20px;`;
+                document.getElementById("track-control").removeAttribute("style");
+                document.getElementById("track-control").setAttribute("style", style);
+                document.getElementById("play-btn").className = "fas fa-play-circle fa-2x";
+                document.getElementById("play-btn").setAttribute("onclick", "playToPause();")
+                document.getElementById("time-start").innerHTML = `00:00`;
+                document.getElementById("time-stop").innerHTML = timeConvert(song.duration);
+            }
+        }
+
+    });
+}
+
+
+function CrimsonPlayingTrack(url) {
+    for (let i = 0; i < currentPlaylist.length; i++) {
+        const track = currentPlaylist[i];
+        if (track.url === url) {
+            document.getElementById(`playlist-name-${i}`).style.color = "crimson";
+            document.getElementById(`playlist-artist-${i}`).style.color = "crimson";
+        } else {
+            document.getElementById(`playlist-name-${i}`).style.color = "lightgray";
+            document.getElementById(`playlist-artist-${i}`).style.color = "lightgray";
+        }
+    }
+}
+
+function heartTrackIfInPlaylist(url) {
+    for (let i = 0; i < currentPlaylist.length; i++) {
+        const track = currentPlaylist[i];
+        if (track.url === url) {
+            document.getElementById(`heart-icon`).innerHTML = `<i class="fas fa-heart"></i>`;
+            document.getElementById(`heart-icon`).removeAttribute("onclick");
+            document.getElementById(`heart-icon`).setAttribute("onclick", `deletePlaylist('${url}')`)
+            break;
+        } else {
+            document.getElementById(`heart-icon`).innerHTML = `<i class="far fa-heart"></i>`;
+            document.getElementById(`heart-icon`).removeAttribute("onclick");
+            document.getElementById(`heart-icon`).setAttribute("onclick", `addPlaylist('${url}')`)
+        }
+    }
+}
+
+
+
+
+
+
+function addPlaylist(url) {
+    let isExistTracklist = false;
+    for (let i = 0; i < currentPlaylist.length; i++) {
+        const track = currentPlaylist[i];
+        if (track.url === url) {
+            isExistTracklist = true;
+            break
+        }
+    }
+    if (!isExistTracklist) {
+        for (let i = 0; i < tracks.length; i++) {
+            if (tracks[i].url === url) {
+                currentPlaylist.push(tracks[i]);
+                break;
+            }
+        }
+    }
+    displayPlaylist(currentPlaylist);
+    console.log(currentPlaylist)
+}
+
+
+
+function deletePlaylist(url) {
+    for (let i = 0; i < currentPlaylist.length; i++) {
+        if (currentPlaylist[i].url === url) {
+            currentPlaylist.splice(i, 1);
+            break;
+        }
+    }
+    displayPlaylist(currentPlaylist);
+    console.log(currentPlaylist)
+}
+
+
+function nextAndPreviousTrack(url) {
+    let currentTrackIndex;
+    for (let i = 0; i < currentPlaylist.length; i++) {
+        const track = currentPlaylist[i];
+        if (url === track.url) {
+            currentTrackIndex = i;
+            break;
+        } else {
+            currentTrackIndex = 0;
+        }
+    }
+    if (currentPlaylist.length > 2) {
+        if ((currentTrackIndex != 0) && (currentTrackIndex != currentPlaylist.length - 1)) {
+            document.getElementsByClassName("back-button")[0].setAttribute("onclick", `playFirstTime('${currentPlaylist[currentTrackIndex-1].id}')`);
+            document.getElementsByClassName("next-button")[0].setAttribute("onclick", `playFirstTime('${currentPlaylist[currentTrackIndex+1].id}')`);
+        } else if (currentTrackIndex === 0) {
+            document.getElementsByClassName("next-button")[0].setAttribute("onclick", `playFirstTime('${currentPlaylist[currentTrackIndex+1].id}')`);
+            document.getElementsByClassName("back-button")[0].removeAttribute("onclick")
+        } else if (currentTrackIndex === currentPlaylist.length - 1) {
+            document.getElementsByClassName("back-button")[0].setAttribute("onclick", `playFirstTime('${currentPlaylist[currentTrackIndex-1].id}')`);
+            document.getElementsByClassName("next-button")[0].removeAttribute("onclick")
+        }
+    } else if (currentPlaylist.length === 2) {
+        if (currentTrackIndex === 0) {
+            document.getElementsByClassName("next-button")[0].setAttribute("onclick", `playFirstTime('${currentPlaylist[currentTrackIndex+1].id}')`);
+            document.getElementsByClassName("back-button")[0].removeAttribute("onclick")
+        } else if (currentTrackIndex === 1) {
+            document.getElementsByClassName("back-button")[0].setAttribute("onclick", `playFirstTime('${currentPlaylist[currentTrackIndex-1].id}')`);
+            document.getElementsByClassName("next-button")[0].removeAttribute("onclick")
+        }
+    } else if (currentPlaylist.length === 1) {
+        if (currentTrackIndex === 0) {
+            // document.getElementsByClassName("next-button")[0].setAttribute("onclick", `playFirstTime('${currentPlaylist[currentTrackIndex+1].id}')`);
+            document.getElementsByClassName("back-button")[0].removeAttribute("onclick")
+            document.getElementsByClassName("next-button")[0].removeAttribute("onclick")
+
+        }
+    }
+
+}
+
+function addTracklist() {
+
+}

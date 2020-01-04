@@ -20,7 +20,7 @@ function displayIndex() {
                 </div>
                 <div class="recommended-album-sector-album d-flex justify-content-between align-items-center">
                     <div id="list-album-card" class="list-album-card d-flex justify-content-between align-items-center">
-                        <!-- index.js function displayAlbumCard -->
+                       
                     </div>
                 </div>
             </div>
