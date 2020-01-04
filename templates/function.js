@@ -508,19 +508,42 @@ function CrimsonPlayingTrack(url) {
 }
 
 function heartTrackIfInPlaylist(url) {
+    let isInTrackList = false;
     for (let i = 0; i < currentPlaylist.length; i++) {
         const track = currentPlaylist[i];
         if (track.url === url) {
-            document.getElementById(`heart-icon`).innerHTML = `<i class="fas fa-heart"></i>`;
-            document.getElementById(`heart-icon`).removeAttribute("onclick");
-            document.getElementById(`heart-icon`).setAttribute("onclick", `deletePlaylist('${url}')`)
+            isInTrackList = true;
             break;
-        } else {
-            document.getElementById(`heart-icon`).innerHTML = `<i class="far fa-heart"></i>`;
-            document.getElementById(`heart-icon`).removeAttribute("onclick");
-            document.getElementById(`heart-icon`).setAttribute("onclick", `addPlaylist('${url}')`)
         }
     }
+
+    if (isInTrackList) {
+        document.getElementById(`heart-icon`).innerHTML = `<i class="fas fa-heart"></i>`;
+        document.getElementById(`heart-icon`).removeAttribute("onclick");
+        document.getElementById(`heart-icon`).setAttribute("onclick", `deletePlaylist('${url}')`)
+    } else {
+        document.getElementById(`heart-icon`).innerHTML = `<i class="far fa-heart"></i>`;
+        document.getElementById(`heart-icon`).removeAttribute("onclick");
+        document.getElementById(`heart-icon`).setAttribute("onclick", `addPlaylist('${url}')`)
+    }
+
+
+
+    // if (currentPlaylist.length != 0) {
+    //     if (track.url === url) {
+    //         document.getElementById(`heart-icon`).innerHTML = `<i class="fas fa-heart"></i>`;
+    //         document.getElementById(`heart-icon`).removeAttribute("onclick");
+    //         document.getElementById(`heart-icon`).setAttribute("onclick", `deletePlaylist('${url}')`)
+    //         break;
+    //     } else {
+    //         document.getElementById(`heart-icon`).innerHTML = `<i class="far fa-heart"></i>`;
+    //         document.getElementById(`heart-icon`).removeAttribute("onclick");
+    //         document.getElementById(`heart-icon`).setAttribute("onclick", `addPlaylist('${url}')`)
+    //     }
+    // } else {
+
+    // }
+
 }
 
 
@@ -528,25 +551,37 @@ function heartTrackIfInPlaylist(url) {
 
 
 
+
 function addPlaylist(url) {
-    let isExistTracklist = false;
-    for (let i = 0; i < currentPlaylist.length; i++) {
-        const track = currentPlaylist[i];
-        if (track.url === url) {
-            isExistTracklist = true;
-            break
-        }
-    }
-    if (!isExistTracklist) {
+    if (currentPlaylist.length === 0) {
         for (let i = 0; i < tracks.length; i++) {
             if (tracks[i].url === url) {
                 currentPlaylist.push(tracks[i]);
                 break;
             }
         }
+        displayPlaylist(currentPlaylist);
+    } else {
+        let isExistTracklist = false;
+        for (let i = 0; i < currentPlaylist.length; i++) {
+            const track = currentPlaylist[i];
+            if (track.url === url) {
+                isExistTracklist = true;
+                break
+            }
+        }
+        if (!isExistTracklist) {
+            for (let i = 0; i < tracks.length; i++) {
+                if (tracks[i].url === url) {
+                    currentPlaylist.push(tracks[i]);
+                    break;
+                }
+            }
+        }
+        displayPlaylist(currentPlaylist);
+        console.log(currentPlaylist)
     }
-    displayPlaylist(currentPlaylist);
-    console.log(currentPlaylist)
+
 }
 
 
@@ -601,9 +636,5 @@ function nextAndPreviousTrack(url) {
 
         }
     }
-
-}
-
-function addTracklist() {
 
 }
